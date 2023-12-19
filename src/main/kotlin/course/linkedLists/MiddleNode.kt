@@ -1,0 +1,51 @@
+package course.linkedLists
+
+/**
+ * Example:
+ * var li = ListNode(5)
+ * var v = li.`val`
+ * Definition for singly-linked list.
+ * class ListNode(var `val`: Int) {
+ *     var next: ListNode? = null
+ * }
+ *
+ * https://leetcode.com/explore/interview/card/leetcodes-interview-crash-course-data-structures-and-algorithms/704/linked-lists/4660/
+ *
+ * Given the head of a singly linked list, return the middle node of the linked list.
+ *
+ * If there are two middle nodes, return the second middle node.
+ *
+ *
+ *
+ * Example 1:
+ *
+ *
+ * Input: head = [1,2,3,4,5]
+ * Output: [3,4,5]
+ * Explanation: The middle node of the list is node 3.
+ * Example 2:
+ *
+ *
+ * Input: head = [1,2,3,4,5,6]
+ * Output: [4,5,6]
+ * Explanation: Since the list has two middle nodes with values 3 and 4, we return the second one.
+ *
+ *
+ * Constraints:
+ *
+ * The number of nodes in the list is in the range [1, 100].
+ * 1 <= Node.val <= 100
+ */
+fun middleNode(head: ListNode?): ListNode? {
+    var slow = head
+    var fast = head
+    while (fast !== null && fast.next !== null) {
+        slow = slow?.next
+        fast = fast.next?.next
+    }
+    return slow
+}
+
+class ListNode(var `val`: Int) {
+    var next: ListNode? = null
+}
